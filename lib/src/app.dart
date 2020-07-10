@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 class App extends StatelessWidget {
   final bgColor = const Color(0xFFEAF0F1);
-  final black = const Color(0xFF2C3335)
+  final black = const Color(0xFF2C3335);
 
   Widget build(context) {
     return MaterialApp(
