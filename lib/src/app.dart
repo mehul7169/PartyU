@@ -9,13 +9,16 @@ class App extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: bgColor,
-        floatingActionButton: FloatingActionButton(
-          backgroundColor: bgColor,
-          child: Icon(
-            Icons.map,
-            color: black,
+        floatingActionButton: Padding(
+          padding: const EdgeInsets.only(right: 325.00),
+          child: FloatingActionButton(
+            backgroundColor: bgColor,
+            child: Icon(
+              Icons.map,
+              color: black,
+            ),
+            onPressed: () {},
           ),
-          onPressed: () {},
         ),
         body: SafeArea(
           child: Container(
