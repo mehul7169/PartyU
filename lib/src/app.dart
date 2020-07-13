@@ -13,6 +13,11 @@ class App extends StatelessWidget {
           padding: const EdgeInsets.only(right: 325.00),
           child: FloatingActionButton(
             backgroundColor: bgColor,
+            shape: CircleBorder(
+                side: BorderSide(
+              color: black,
+              width: 4.0,
+            )),
             child: Icon(
               Icons.map,
               color: black,
