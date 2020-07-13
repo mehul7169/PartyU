@@ -5,25 +5,29 @@ class App extends StatelessWidget {
   final bgColor = const Color(0xFFEAF0F1);
   final black = const Color(0xFF2C3335);
 
+  FloatingActionButton addMapButton() {
+    return FloatingActionButton(
+      backgroundColor: bgColor,
+      shape: CircleBorder(
+          side: BorderSide(
+        color: black,
+        width: 4.0,
+      )),
+      child: Icon(
+        Icons.map,
+        color: black,
+      ),
+      onPressed: () {},
+    );
+  }
+
   Widget build(context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: bgColor,
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(right: 325.00),
-          child: FloatingActionButton(
-            backgroundColor: bgColor,
-            shape: CircleBorder(
-                side: BorderSide(
-              color: black,
-              width: 4.0,
-            )),
-            child: Icon(
-              Icons.map,
-              color: black,
-            ),
-            onPressed: () {},
-          ),
+          child: addMapButton(),
         ),
         body: SafeArea(
           child: Container(
