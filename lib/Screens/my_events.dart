@@ -38,7 +38,7 @@ class MyEvents extends StatelessWidget {
               child: AutoSizeText(
                 text + ' | ' + date,
                 style: TextStyle(
-                  fontSize: 16.0,
+                  fontSize: 18.0,
                   fontWeight: FontWeight.w800,
                 ),
                 maxLines: 1,
@@ -51,12 +51,12 @@ class MyEvents extends StatelessWidget {
           //Row(
           //children: <Widget>[
 
-          Icon(Icons.check, size: 35),
-          SizedBox(width: 7),
-          Icon(Icons.favorite_border, size: 35),
-          SizedBox(width: 7),
+          Icon(Icons.check, size: 30),
+          SizedBox(width: 5),
+          Icon(Icons.favorite_border, size: 30),
+          SizedBox(width: 5),
           Image.asset('assets/images/black-and-white-share-icon-arrow.png',
-              scale: 65),
+              scale: 70),
 
           //],
           // )
@@ -76,20 +76,32 @@ class MyEvents extends StatelessWidget {
       ),
       body: SafeArea(
           child: Container(
-              padding: EdgeInsets.all(30),
+              padding: EdgeInsets.all(15),
               child: Row(
                 children: <Widget>[
                   Expanded(
                     child: Column(
                       children: <Widget>[
-                        Text('My Invites'),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          child: Text('My Invites',
+                              style: TextStyle(
+                                fontSize: 18.0,
+                                fontWeight: FontWeight.w800,
+                              )),
+                        ),
                         addInviteBox('WAWA Hopkins State', '4/25'),
                         SizedBox(height: 5),
                         addInviteBox('WAWA X Phi Mu Mixer', '4/17'),
                         SizedBox(height: 5),
-                        addInviteBox('HomeSlyce Karoke Night', '4/25'),
+                        addInviteBox('HomeSlyce Karoke Night', '4/14'),
                         SizedBox(height: 5),
                         addInviteBox('Unnamed Event', '4/15'),
+                        SizedBox(height: 5),
+                        Text(
+                          'Load More',
+                          style: TextStyle(fontSize: 13.0),
+                        )
                       ],
                     ),
                   ),
