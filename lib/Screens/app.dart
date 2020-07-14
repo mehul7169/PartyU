@@ -5,6 +5,7 @@ class App extends StatelessWidget {
   final bgColor = const Color(0xFFEAF0F1);
   final black = const Color(0xFF2C3335);
 
+//Creates the floating map button.
   FloatingActionButton addMapButton() {
     return FloatingActionButton(
       backgroundColor: bgColor,
