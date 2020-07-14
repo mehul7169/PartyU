@@ -5,7 +5,7 @@ class MyEvents extends StatelessWidget {
   final bgColor = const Color(0xFFEAF0F1);
   final black = const Color(0xFF2C3335);
 
-//Creates the the floating map button.
+  //Creates the the floating map button.
   FloatingActionButton addMapButton() {
     return FloatingActionButton(
       backgroundColor: bgColor,
@@ -22,6 +22,7 @@ class MyEvents extends StatelessWidget {
     );
   }
 
+  //Given a text and a date, creates an Invite Box.
   Container addInviteBox(String text, String date) {
     return Container(
       padding: EdgeInsets.all(10.00),
@@ -34,7 +35,6 @@ class MyEvents extends StatelessWidget {
         children: <Widget>[
           Expanded(
             child: Container(
-              //padding: EdgeInsets.all(30.0),
               child: AutoSizeText(
                 text + ' | ' + date,
                 style: TextStyle(
@@ -45,22 +45,12 @@ class MyEvents extends StatelessWidget {
               ),
             ),
           ),
-
-          //Padding(
-          //padding: const EdgeInsets.only(left: 100.00),
-          //Row(
-          //children: <Widget>[
-
           Icon(Icons.check, size: 30),
           SizedBox(width: 5),
           Icon(Icons.favorite_border, size: 30),
           SizedBox(width: 5),
           Image.asset('assets/images/black-and-white-share-icon-arrow.png',
               scale: 70),
-
-          //],
-          // )
-          //)
         ],
       ),
     );
