@@ -19,8 +19,16 @@ class EventsDropdown extends StatelessWidget {
   Widget build(context) {
     return Container(
         child: ListView.builder(
-      itemCount: 0,
-      itemBuilder: null,
-    ));
+            itemCount: events.length,
+            itemBuilder: (BuildContext context, int index) {
+              return Container(
+                  child: Card(
+                      child: Column(
+                children: <Widget>[
+                  Text(index.toString()),
+                  Text(events[index]),
+                ],
+              )));
+            }));
   }
 }
