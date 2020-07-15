@@ -18,61 +18,87 @@ class EventsDropdownView extends StatelessWidget {
   @override
   Widget build(context) {
     return Container(
-        child: ListView.builder(
-            itemCount: events.length,
-            itemBuilder: (BuildContext context, int index) =>
-                buildEventCard(context, index)));
+      child: ListView.builder(
+        itemCount: events.length,
+        itemBuilder: (BuildContext context, int index) =>
+            buildEventCard(context, index),
+      ),
+    );
   }
 
   Widget buildEventCard(BuildContext context, int index) {
     final event = events[index];
     return Container(
       child: Card(
-          child: Padding(
-        padding: const EdgeInsets.symmetric(
-          vertical: 5,
-          horizontal: 15.0,
+        margin: EdgeInsets.only(bottom: 0),
+        shape: const RoundedRectangleBorder(
+          side: BorderSide(
+            color: Colors.black,
+            width: 2,
+          ),
+          borderRadius: const BorderRadius.all(
+            const Radius.circular(
+                10), //Need to figure out a way to make the bottom straight
+          ),
         ),
         child: Column(
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Row(children: <Widget>[
-                Text(event.date),
-              ]),
+              padding: const EdgeInsets.only(bottom: 8),
+              child: Container(
+                padding: EdgeInsets.only(bottom: 6, left: 8.0, top: 8.0),
+                color: Color(0xFFDAE0E2),
+                child: Row(children: <Widget>[
+                  Text(
+                    event.date,
+                    style: TextStyle(
+                      fontSize: 11,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ]),
+              ),
             ),
             IntrinsicHeight(
-              child: Row(children: <Widget>[
-                Text(event.time),
-                VerticalDivider(
-                  thickness: 1.0,
-                  color: Colors.black,
-                ),
-                Column(
-                  children: <Widget>[
-                    Text(event.eventName),
-                    Row(
-                      children: <Widget>[
-                        Icon(Icons.person_outline, size: 25),
-                        Icon(Icons.person_outline, size: 25),
-                        Icon(Icons.person_outline, size: 25),
-                        Column(
-                          children: <Widget>[
-                            Text(event.friends.toString() +
-                                ' Friends, ' +
-                                event.followers.toString() +
-                                'Followers'),
-                          ],
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-              ]),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 8.0, left: 8.0),
+                child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        event.time,
+                      ),
+                      VerticalDivider(
+                        thickness: 1.0,
+                        color: Colors.black,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(event.eventName),
+                          Row(
+                            children: <Widget>[
+                              Icon(Icons.person_outline, size: 25),
+                              Icon(Icons.person_outline, size: 25),
+                              Icon(Icons.person_outline, size: 25),
+                              Column(
+                                children: <Widget>[
+                                  Text(event.friends.toString() +
+                                      ' Friends, ' +
+                                      event.followers.toString() +
+                                      ' Followers'),
+                                ],
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ]),
+              ),
             ),
           ],
         ),
-      )),
+      ),
     );
   }
 }
