@@ -1,4 +1,4 @@
-# profile_page
+# party_u
 
 A new Flutter project.
 
