@@ -1,7 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-class MyEvents extends StatelessWidget {
+class MyEventsView extends StatelessWidget {
   final bgColor = const Color(0xFFEAF0F1);
   final black = const Color(0xFF2C3335);
 

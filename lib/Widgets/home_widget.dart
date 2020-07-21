@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:profile_page/Screens/my_events_view.dart';
+import 'package:profile_page/Screens/profile_page_view.dart';
 import 'package:profile_page/pages.dart';
 
 class Home extends StatefulWidget {
@@ -11,9 +13,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _currentIndex = 1;
   final List<Widget> _children = [
-    EventsPage(),
+    MyEventsView(),
     MapPage(),
-    ProfilePage(),
+    ProfilePageView(),
   ];
 
   @override

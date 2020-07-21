@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class App extends StatelessWidget {
+class ProfilePageView extends StatelessWidget {
   final bgColor = const Color(0xFFEAF0F1);
   final black = const Color(0xFF2C3335);
 
