@@ -5,6 +5,7 @@ import 'package:profile_page/Widgets/events_dropdown_widget.dart';
 import 'package:profile_page/Screens/my_events_view.dart';
 import 'Screens/profile_page_view.dart';
 
+//Change runApp() to whatever screen that you are working on.
 void main() {
   runApp(MyApp());
 }
