@@ -4,6 +4,8 @@ import 'package:profile_page/Screens/profile_page_view.dart';
 
 /// Screen that displays the map. Serves as the home screen after the
 /// user signs in.
+/// TODO: Create interative real-time map.
+/// TODO: Search for better ways of navigation.
 class MapView extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -37,6 +39,7 @@ class MapViewState extends State<MapView> {
                   crossAxisAlignment: CrossAxisAlignment.end,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
+                    //TODO: Make into a separate function.
                     Column(
                       children: <Widget>[
                         Spacer(),
@@ -74,6 +77,8 @@ class MapViewState extends State<MapView> {
                             ))
                       ],
                     ),
+                    //TODO: Make into a separate function.
+                    //TODO: Figure out what map button does.
                     Container(
                       margin: EdgeInsets.only(bottom: 10.0),
                       constraints: BoxConstraints(
@@ -93,6 +98,7 @@ class MapViewState extends State<MapView> {
                         onPressed: () {},
                       ),
                     ),
+                    //TODO: Make into a separate function.
                     Column(
                       children: <Widget>[
                         Spacer(),
@@ -110,6 +116,7 @@ class MapViewState extends State<MapView> {
                             ),
                             iconSize: 27,
                             onPressed: () {
+                              //TODO: See if there is a way to choose from which side of the screen that the next page comes from.
                               Navigator.push(
                                 context,
                                 new MaterialPageRoute(

@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:profile_page/Event.dart';
 
+///EventsDropdownView displays the list of events that the user has
+///TODO: Make it an actual dropdown menu.
+///TODO: Add downward arrow and switching month widget at the top.
+///TODO: Fix the border of the cards.
+///TODO: Make more clean and concise.
 class EventsDropdownView extends StatelessWidget {
   final bgColor = const Color(0xFFEAF0F1);
   final black = const Color(0xFF2C3335);
@@ -15,6 +20,7 @@ class EventsDropdownView extends StatelessWidget {
     Event('Unnamed Event', 'Tue April 28', '2:00 PM', 2, 7, 17),
     Event('Unnamed Event', 'Wed April 29', '10:30 PM', 7, 21, 45),
   ];
+
   @override
   Widget build(context) {
     return Container(
@@ -26,6 +32,7 @@ class EventsDropdownView extends StatelessWidget {
     );
   }
 
+  //Creates an event card.
   Widget buildEventCard(BuildContext context, int index) {
     final event = events[index];
     return Container(
