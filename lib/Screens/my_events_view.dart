@@ -58,8 +58,9 @@ class MyEventsView extends StatelessWidget {
 
   Container addEventBox(String eventName, String date, String time) {
     return Container(
+        // TODO: Need to find a better solution to the overflow.
         padding: EdgeInsets.only(
-          bottom: 30.0,
+          //bottom: 30.0,
           top: 20.0,
           right: 15.0,
           left: 10.0,
