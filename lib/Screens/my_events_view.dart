@@ -2,11 +2,11 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class MyEventsView extends StatelessWidget {
-  final bgColor = const Color(0xFFEAF0F1);
+  final bgColor = const Color(0xFFfcfeff);
   final black = const Color(0xFF2C3335);
 
   //Creates the the floating map button.
-  FloatingActionButton addMapButton() {
+  FloatingActionButton addMapButton(BuildContext context) {
     return FloatingActionButton(
       backgroundColor: bgColor,
       shape: CircleBorder(
@@ -18,7 +18,9 @@ class MyEventsView extends StatelessWidget {
         Icons.map,
         color: black,
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pop(context);
+      },
     );
   }
 
@@ -111,7 +113,7 @@ class MyEventsView extends StatelessWidget {
       backgroundColor: bgColor,
       floatingActionButton: Padding(
         padding: const EdgeInsets.only(left: 325.00),
-        child: addMapButton(),
+        child: addMapButton(context),
       ),
       body: SafeArea(
           child: Container(

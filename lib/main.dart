@@ -10,7 +10,7 @@ import 'Screens/map_view.dart';
 
 //Change runApp() to whatever screen that you are working on.
 void main() {
-  runApp(MapView());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Party U App',
-      home: Home(),
+      home: MapView(),
     );
   }
 }

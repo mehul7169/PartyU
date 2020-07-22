@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ProfilePageView extends StatelessWidget {
-  final bgColor = const Color(0xFFEAF0F1);
+  final bgColor = const Color(0xFFfcfeff);
   final black = const Color(0xFF2C3335);
 
 //Creates the floating map button.
-  FloatingActionButton addMapButton() {
+  FloatingActionButton addMapButton(BuildContext context) {
     return FloatingActionButton(
       backgroundColor: bgColor,
       shape: CircleBorder(
@@ -18,7 +18,9 @@ class ProfilePageView extends StatelessWidget {
         Icons.map,
         color: black,
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.pop(context);
+      },
     );
   }
 
@@ -28,7 +30,7 @@ class ProfilePageView extends StatelessWidget {
         backgroundColor: bgColor,
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(right: 325.00),
-          child: addMapButton(),
+          child: addMapButton(context),
         ),
         body: SafeArea(
           child: Container(
