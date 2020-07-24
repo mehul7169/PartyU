@@ -9,35 +9,10 @@ class ProfilePageView extends StatelessWidget {
   final bgColor = const Color(0xFFfcfeff);
   final black = const Color(0xFF2C3335);
 
-  //Creates the floating map button.
-  FloatingActionButton addMapButton(BuildContext context) {
-    return FloatingActionButton(
-      backgroundColor: bgColor,
-      shape: CircleBorder(
-        side: BorderSide(
-          color: black,
-          width: 4.0,
-        ),
-      ),
-      child: Icon(
-        Icons.map,
-        color: black,
-      ),
-      onPressed: () {
-        // Takes you back to previous page, map screen.
-        Navigator.pop(context);
-      },
-    );
-  }
-
   Widget build(context) {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: bgColor,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(right: 300),
-          child: addMapButton(context),
-        ),
         //TODO: Search for ways to make the screens adjust for smaller screens.
         body: Container(
           padding: EdgeInsets.all(30),

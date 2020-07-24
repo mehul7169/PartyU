@@ -10,25 +10,6 @@ class MyEventsView extends StatelessWidget {
   final bgColor = const Color(0xFFfcfeff);
   final black = const Color(0xFF2C3335);
 
-  //Creates the the floating map button.
-  FloatingActionButton addMapButton(BuildContext context) {
-    return FloatingActionButton(
-      backgroundColor: bgColor,
-      shape: CircleBorder(
-          side: BorderSide(
-        color: black,
-        width: 4.0,
-      )),
-      child: Icon(
-        Icons.map,
-        color: black,
-      ),
-      onPressed: () {
-        Navigator.pop(context);
-      },
-    );
-  }
-
   //Given a text and a date, creates an Invite Box.
   Container addInviteBox(String text, String date) {
     return Container(
@@ -121,12 +102,8 @@ class MyEventsView extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         backgroundColor: bgColor,
-        floatingActionButton: Padding(
-          padding: const EdgeInsets.only(left: 325.00),
-          child: addMapButton(context),
-        ),
         body: Container(
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.only(right: 15, bottom: 15, left: 15, top: 45),
           child: Column(
             children: <Widget>[
               //Expanded(
