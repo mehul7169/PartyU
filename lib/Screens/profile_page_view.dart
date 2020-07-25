@@ -10,8 +10,37 @@ class ProfilePageView extends StatelessWidget {
   final bgColor = const Color(0xFFffffff);
   final black = const Color(0xFF2C3335);
 
+  // Add 'Edit Profile' button.
+  //TODO: Need to allow user to edit profile once button is pressed.
+  Container _addEditProfile(double screenWidth, double screenHeight) {
+    return Container(
+      width: screenWidth * 0.32,
+      height: screenHeight * 0.025,
+      margin: const EdgeInsets.only(top: 8),
+      child: FlatButton(
+        padding: EdgeInsets.symmetric(horizontal: 0.2, vertical: 1),
+        color: Color(0xFFdedede),
+        shape: RoundedRectangleBorder(
+          side: BorderSide(
+            color: Colors.black,
+          ),
+          borderRadius: const BorderRadius.all(const Radius.circular(8)),
+        ),
+        child: AutoSizeText(
+          'Edit Profile',
+          style: GoogleFonts.courierPrime(
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+          maxLines: 1,
+        ),
+        onPressed: () {},
+      ),
+    );
+  }
+
   // Displays the user's name.
-  AutoSizeText addName(String name) {
+  AutoSizeText _addName(String name) {
     return AutoSizeText(
       name,
       style: GoogleFonts.courierPrime(
@@ -41,31 +70,13 @@ class ProfilePageView extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.center,
-                child: addName('Marcus'),
+                child: _addName('Marcus'),
               ),
               Align(
                 alignment: Alignment.center,
-                child: addName('Haughton'),
+                child: _addName('Haughton'),
               ),
-              Container(
-                width: screenWidth * 0.35,
-                alignment: Alignment.center,
-                decoration: BoxDecoration(
-                  color: Color(0xFFdedede),
-                  border: Border.all(width: 1, color: Colors.black),
-                  borderRadius:
-                      const BorderRadius.all(const Radius.circular(4)),
-                ),
-                child: AutoSizeText(
-                  'Edit Profile',
-                  style: GoogleFonts.courierPrime(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                  maxLines: 1,
-                ),
-                margin: const EdgeInsets.all(4),
-              ),
+              _addEditProfile(screenWidth, screenHeight),
               SizedBox(
                 height: screenHeight * 0.03,
               ),
