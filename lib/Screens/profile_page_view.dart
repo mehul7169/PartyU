@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
-/// ProfilePageView class displays the profile page of the user
+/// ProfilePageView class displays the profile page of the user.
 /// TODO: Need to make sure the layout is suitable for smaller devices.
-/// TODO: Need to make separate widgets/icon budgets for each selection tab.
+/// TODO: Need to make separate widgets/icon buttons for each selection tab.
 /// TODO: Make code cleaner and concise.
 class ProfilePageView extends StatelessWidget {
   final bgColor = const Color(0xFFfcfeff);
   final black = const Color(0xFF2C3335);
 
   Widget build(context) {
+    final _width = MediaQuery.of(context).size.width;
+    final _height = MediaQuery.of(context).size.height;
+
     return MaterialApp(
       home: Scaffold(
         backgroundColor: bgColor,
-        //TODO: Search for ways to make the screens adjust for smaller screens.
         body: Container(
           padding: EdgeInsets.all(30),
           child: Column(
@@ -26,24 +29,36 @@ class ProfilePageView extends StatelessWidget {
                 children: <Widget>[
                   Icon(
                     Icons.portrait,
-                    size: 200,
+                    size: _width * 0.45,
                   ),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      Text(
-                        //TODO: Find solution to make the test stop going off the screen for smaller devices.
-                        'First Name',
-                        style: GoogleFonts.courierPrime(),
-                        textScaleFactor: 1.8,
-                        //maxLines: 1,
+                      SizedBox(
+                        width: _width * 0.40,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: AutoSizeText(
+                            'First Name',
+                            style: GoogleFonts.courierPrime(
+                              fontSize: 28,
+                            ),
+                            maxLines: 1,
+                          ),
+                        ),
                       ),
-                      Text(
-                        //TODO: Find solution to make the test stop going off the screen for smaller devices.
-                        'Last Name',
-                        style: GoogleFonts.courierPrime(),
-                        textScaleFactor: 1.8,
-                        //maxLines: 1,
+                      SizedBox(
+                        width: _width * 0.40,
+                        child: Align(
+                          alignment: Alignment.center,
+                          child: AutoSizeText(
+                            'Last Name',
+                            style: GoogleFonts.courierPrime(
+                              fontSize: 28,
+                            ),
+                            maxLines: 1,
+                          ),
+                        ),
                       ),
                       Container(
                         width: 140,
