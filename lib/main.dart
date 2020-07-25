@@ -4,6 +4,7 @@ import 'package:profile_page/Screens/profile_page_view.dart';
 import 'Screens/map_view.dart';
 import 'Screens/location_preferences_view.dart';
 import 'Widgets/home_widget.dart';
+import 'Screens/notifications_preferences_view.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Party U App',
       //Change and import to whatever screen that you are working on.
-      home: LocationPreferenceView(),
+      home: NotificationPreferenceView(),
     );
   }
 }

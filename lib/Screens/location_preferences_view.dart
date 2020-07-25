@@ -8,6 +8,9 @@ import 'package:flutter/cupertino.dart';
 /// Make sure all the fonts match up
 
 
+final mainBlue = const Color.fromRGBO(115, 56, 210, 1.0);
+final darkBlue = const Color.fromRGBO(30, 2, 83, 1.0);
+
 class LocationPreferenceView extends StatefulWidget {
 
   createState()=> _LocationState();
@@ -16,14 +19,9 @@ class LocationPreferenceView extends StatefulWidget {
 
 
 
- 
-
 class _LocationState extends State<LocationPreferenceView> {
 
-  bool valHidden = false;
-  bool valCloseFriends = false;
-  bool valAllFriends = false;
-
+  int groupValue;
 
   @override
   Widget build(context) {
@@ -34,166 +32,180 @@ class _LocationState extends State<LocationPreferenceView> {
 
     return MaterialApp(
         home: Scaffold(
-            appBar: AppBar(
-            backgroundColor: Colors.white,
-              title: Text('Location Preferences'),
+          appBar: AppBar(
+            backgroundColor: mainBlue,
+            title: Text('Location Preferences',
+              style: TextStyle(color: Colors.white,
+                  fontFamily: 'Open Sans',
+                  fontWeight: FontWeight.w700),),
             elevation: 0,
-                leading: IconButton(icon:Icon(Icons.arrow_back_ios, color: Colors.black,),
-                onPressed: () {
-              },
-           ),
-      ),
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back_ios, color: Colors.white,),
+              onPressed: () {},
+            ),
+          ),
 
           body: Container(
-           child: Column(
-
-            children: <Widget> [
-
-              SizedBox(height: _height * 0.03,),
-              // Hidden checkbox
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              child: ListView(
 
                 children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                  ),
-                  AutoSizeText(
-                        "Hidden", minFontSize: 20, maxFontSize: 32,
-                        style: TextStyle(fontFamily: 'Open Sans', color: Colors.black,
+                  SizedBox(height: _height * 0.03,),
+                  // Hidden checkbox
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                      ),
+                      AutoSizeText(
+                        "Hidden", minFontSize: 19, maxFontSize: 32,
+                        style: TextStyle(
+                          fontFamily: 'Open Sans', color: Colors.black,
                           fontWeight: FontWeight.w900,),
                       ),
-                  Spacer(),
-                  Checkbox(
-                    value: valHidden,
-                    onChanged: (bool value) {
-                      setState(() {
-                        valHidden = value;
-                        valCloseFriends = false;
-                        valAllFriends = false;
-                      });
-                    },
+                      Spacer(),
+                      new Radio(
+                        groupValue: groupValue,
+                        onChanged: (int e) => something(e),
+                        value: 1,
+                        activeColor: Colors.black,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                      ),
+                    ],
                   ),
+
                   Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                  ),
-                ],
-              ),
-
-              Padding(
-                padding: EdgeInsets.only(left: 10,right: 10),
-                child: AutoSizeText("Your name won’t be listed as an event attendee for any events shown on the map.",
-                  minFontSize: 15,
-                style: TextStyle(fontFamily: 'Open Sans', fontWeight: FontWeight.w600),
-              ),),
-              SizedBox(height: _height * 0.03,),
-              Container(
-                margin: const EdgeInsets.only(left: 10, right: 10),
-                height: 1.5,
-                color: Colors.black,
-              ),
-
-              // Only Close Friends checkbox
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: AutoSizeText(
+                      "Your name won’t be listed as an event attendee for any events shown on the map.",
+                      minFontSize: 15,
+                      style: TextStyle(
+                          fontFamily: 'Open Sans', fontWeight: FontWeight.w600),
+                    ),),
                   SizedBox(height: _height * 0.03,),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    height: 1.5,
+                    color: Colors.black,
                   ),
-                 // SizedBox(height: _height * 0.07,),
-                  AutoSizeText(
-                    "Close Friends(Recommended)",
-                    minFontSize: 18, maxFontSize: 32,
-                    style: TextStyle(fontFamily: 'Open Sans', color: Colors.black,
-                      fontWeight: FontWeight.w900,),
-                  ),
-                  Spacer(),
-                  Checkbox(
-                    value: valCloseFriends,
-                    onChanged: (bool value) {
-                      setState(() {
-                        valCloseFriends = value;
-                        valHidden = false;
-                        valAllFriends = false;
-                      });
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                  ),
-                ],
-              ),
 
-              SizedBox(height: _height * 0.01,),
-              Padding(
-                padding: EdgeInsets.only(left: 10,right: 10),
-                child: AutoSizeText("Your name will be shown to your close friends, only while at an event.",
-                minFontSize: 15,
-                style: TextStyle(fontFamily: 'Open Sans', fontWeight: FontWeight.w600),
-              ),
-              ),
-              SizedBox(height: _height * 0.03,),
-              Container(
-                margin: const EdgeInsets.only(left: 10, right: 10),
-                height: 1.5,
-                color: Colors.black,
-              ),
+                  // Only Close Friends checkbox
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      SizedBox(height: _height * 0.03,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                      ),
+                      // SizedBox(height: _height * 0.07,),
+                      AutoSizeText(
+                        "Close Friends(Recommended)",
+                        minFontSize: 18, maxFontSize: 32,
+                        style: TextStyle(
+                          fontFamily: 'Open Sans', color: Colors.black,
+                          fontWeight: FontWeight.w900,),
+                      ),
+                      Spacer(),
+                      new Radio(
+                        onChanged: (int e) => something(e),
+                        groupValue: groupValue,
+                        value: 2,
+                        activeColor: Colors.black,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                      ),
+                    ],
+                  ),
 
-              // All Friends checkbox
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
+                  SizedBox(height: _height * 0.01,),
+                  Padding(
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: AutoSizeText(
+                      "Your name will be shown to your close friends, only while at an event.",
+                      minFontSize: 15,
+                      style: TextStyle(
+                          fontFamily: 'Open Sans', fontWeight: FontWeight.w600),
+                    ),
+                  ),
                   SizedBox(height: _height * 0.03,),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    height: 1.5,
+                    color: Colors.black,
+                  ),
+
+                  // All Friends checkbox
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      SizedBox(height: _height * 0.03,),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                      ),
+                      AutoSizeText(
+                        "All Friends", minFontSize: 19, maxFontSize: 24,
+                        style: TextStyle(
+                          fontFamily: 'Open Sans', color: Colors.black,
+                          fontWeight: FontWeight.w900,),
+                      ),
+                      Spacer(),
+                      new Radio(
+                        onChanged: (int e) => something(e),
+                        groupValue: groupValue,
+                        value: 3,
+                        activeColor: Colors.black,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 20),
+                      ),
+                    ],
+                  ),
+
                   Padding(
-                    padding: const EdgeInsets.only(left: 10),
+                    padding: EdgeInsets.only(left: 10, right: 10),
+                    child: AutoSizeText(
+                      "Your name will be shown to all of your friends, only while at an event.",
+                      minFontSize: 15,
+                      style: TextStyle(
+                          fontFamily: 'Open Sans', fontWeight: FontWeight.w600),
+                    ),
                   ),
-                  AutoSizeText(
-                    "All Friends", minFontSize: 20, maxFontSize: 24,
-                    style: TextStyle(fontFamily: 'Open Sans', color: Colors.black,
-                      fontWeight: FontWeight.w900,),
-                  ),
-                  Spacer(),
-                  Checkbox(
-                    value: valAllFriends,
-                    onChanged: (bool value) {
-                      setState(() {
-                        valAllFriends = value;
-                        valHidden = false;
-                        valCloseFriends = false;
-                      });
-                    },
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
+                  SizedBox(height: _height * 0.03,),
+                  Container(
+                    margin: const EdgeInsets.only(left: 10, right: 10),
+                    height: 1.5,
+                    color: Colors.black,
                   ),
                 ],
-              ),
 
-              Padding(
-                padding: EdgeInsets.only(left: 10,right: 10),
-                child: AutoSizeText("Your name will be shown to all of your friends, only while at an event.",
-                  minFontSize: 15,
-                  style: TextStyle(fontFamily: 'Open Sans', fontWeight: FontWeight.w600),
-                ),
-              ),
-              SizedBox(height: _height * 0.03,),
-              Container(
-                margin: const EdgeInsets.only(left: 10, right: 10),
-                height: 1.5,
-                color: Colors.black,
-              ),
-            ],
+              )
+
+
+          ),
 
         )
 
 
-        ),
 
-        )
-  );
+    );
   }
 
+
+  void something(int e){
+    setState(() {
+      if (e == 1) {
+        groupValue == 1;
+      } else if (e == 2){
+        groupValue == 2;
+      } else if (e == 3){
+        groupValue == 3;
+      } else if (e == 4){
+      groupValue == 4; }
+    });
+  }
 }
 
 
