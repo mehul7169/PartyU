@@ -7,8 +7,74 @@ import 'package:auto_size_text/auto_size_text.dart';
 /// TODO: Need to make separate widgets/icon buttons for each selection tab.
 /// TODO: Make code cleaner and concise.
 class ProfilePageView extends StatelessWidget {
-  final bgColor = const Color(0xFFfcfeff);
+  final bgColor = const Color(0xFFffffff);
   final black = const Color(0xFF2C3335);
+
+  // Displays the user's name.
+  AutoSizeText addName(String name) {
+    return AutoSizeText(
+      name,
+      style: GoogleFonts.courierPrime(
+        fontSize: 32,
+      ),
+      maxLines: 1,
+    );
+  }
+
+  // Displays the user's picture, first name, last name, and the edit profile button.
+  Row _addProfile(double screenWidth, double screenHeight) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Icon(
+          Icons.portrait,
+          size: screenWidth * 0.44,
+        ),
+        SizedBox(
+          width: screenWidth * 0.44,
+          height: screenHeight * 0.18,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              SizedBox(
+                height: screenHeight * 0.01,
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: addName('Marcus'),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: addName('Haughton'),
+              ),
+              Container(
+                width: screenWidth * 0.35,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Color(0xFFdedede),
+                  border: Border.all(width: 1, color: Colors.black),
+                  borderRadius:
+                      const BorderRadius.all(const Radius.circular(4)),
+                ),
+                child: AutoSizeText(
+                  'Edit Profile',
+                  style: GoogleFonts.courierPrime(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                  maxLines: 1,
+                ),
+                margin: const EdgeInsets.all(4),
+              ),
+              SizedBox(
+                height: screenHeight * 0.03,
+              ),
+            ],
+          ),
+        )
+      ],
+    );
+  }
 
   Widget build(context) {
     final _width = MediaQuery.of(context).size.width;
@@ -18,69 +84,14 @@ class ProfilePageView extends StatelessWidget {
       home: Scaffold(
         backgroundColor: bgColor,
         body: Container(
-          padding: EdgeInsets.all(30),
+          padding: EdgeInsets.symmetric(
+            horizontal: _width * 0.06,
+            vertical: _height * 0.04,
+          ),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              //TODO: Search for options for containing a list of elements.
-              //TODO: Make this into a separate function.
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  Icon(
-                    Icons.portrait,
-                    size: _width * 0.45,
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: <Widget>[
-                      SizedBox(
-                        width: _width * 0.40,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: AutoSizeText(
-                            'First Name',
-                            style: GoogleFonts.courierPrime(
-                              fontSize: 28,
-                            ),
-                            maxLines: 1,
-                          ),
-                        ),
-                      ),
-                      SizedBox(
-                        width: _width * 0.40,
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: AutoSizeText(
-                            'Last Name',
-                            style: GoogleFonts.courierPrime(
-                              fontSize: 28,
-                            ),
-                            maxLines: 1,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        width: 140,
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFDAE0E2),
-                          border: Border.all(width: 1, color: Colors.black),
-                          borderRadius:
-                              const BorderRadius.all(const Radius.circular(4)),
-                        ),
-                        child: Text(
-                          'Edit Profile',
-                          style: GoogleFonts.courierPrime(
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        margin: const EdgeInsets.all(4),
-                      ),
-                    ],
-                  )
-                ],
-              ),
+              _addProfile(_width, _height),
               //TODO: Make this a separate function.
               Container(
                 child: Column(
