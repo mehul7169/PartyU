@@ -70,11 +70,11 @@ class ProfilePageView extends StatelessWidget {
               ),
               Align(
                 alignment: Alignment.center,
-                child: _addName('Marcus'),
+                child: _addName('First Name'),
               ),
               Align(
                 alignment: Alignment.center,
-                child: _addName('Haughton'),
+                child: _addName('Last Name'),
               ),
               _addEditProfile(screenWidth, screenHeight),
               SizedBox(
@@ -84,6 +84,90 @@ class ProfilePageView extends StatelessWidget {
           ),
         )
       ],
+    );
+  }
+
+/* TODO: This function will need to be edited in order to add actual pictures of friends
+   and allow for the user to click on the icons to see the page of the friend
+*/
+// Given a number, generates the number of friends.
+  Row _addFriends(int count) {
+    List<CircleAvatar> list = new List<CircleAvatar>();
+
+    for (int i = 0; i < count; i++) {
+      list.add(new CircleAvatar(
+        backgroundColor: Color(0xFF5e667e),
+        child: Icon(
+          Icons.person,
+          color: Colors.white,
+        ),
+      ));
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: list,
+    );
+  }
+
+  // Displays the "My Friends & Groups" box.
+  Container _addFriendsAndGroups(screenWidth, screenHeight) {
+    return Container(
+      height: screenHeight * 0.22,
+      width: screenWidth * 0.88,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          AutoSizeText(
+            'My Friends & Groups',
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+              letterSpacing: -0.5,
+            ),
+            maxLines: 1,
+          ),
+          Container(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 8.0),
+            decoration: BoxDecoration(
+              border: Border.all(width: 1.2, color: Colors.black26),
+              borderRadius: const BorderRadius.all(const Radius.circular(6)),
+            ),
+            child: Column(
+              children: <Widget>[
+                _addFriends(5),
+                Divider(thickness: 1.2, color: Colors.black26),
+                //TODO: Make this a separate function.
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.near_me, size: 35),
+                    Text(
+                      '   Friends & Followers',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Icon(Icons.keyboard_arrow_right, size: 35),
+                  ],
+                ),
+                Divider(thickness: 1.2, color: Colors.black26),
+                //TODO: Make this a separate function.
+                Row(
+                  children: <Widget>[
+                    Icon(Icons.notifications_none, size: 35),
+                    Text(
+                      '   Groups',
+                      style: TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    Spacer(),
+                    Icon(Icons.keyboard_arrow_right, size: 35),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -103,66 +187,8 @@ class ProfilePageView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               _addProfile(_width, _height),
-              //TODO: Make this a separate function.
-              Container(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    Text(
-                      'My Friends & Groups',
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                      textScaleFactor: 1.2,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 8.0),
-                      decoration: BoxDecoration(
-                        border: Border.all(width: 1.2, color: Colors.black26),
-                        borderRadius:
-                            const BorderRadius.all(const Radius.circular(6)),
-                      ),
-                      child: Column(
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: <Widget>[
-                              Icon(Icons.person_outline, size: 50),
-                              Icon(Icons.person_outline, size: 50),
-                              Icon(Icons.person_outline, size: 50),
-                            ],
-                          ),
-                          Divider(thickness: 1.2, color: Colors.black26),
-                          //TODO: Make this a separate function.
-                          Row(
-                            children: <Widget>[
-                              Icon(Icons.near_me, size: 35),
-                              Text(
-                                '   Friends & Followers',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              Spacer(),
-                              Icon(Icons.keyboard_arrow_right, size: 35),
-                            ],
-                          ),
-                          Divider(thickness: 1.2, color: Colors.black26),
-                          //TODO: Make this a separate function.
-                          Row(
-                            children: <Widget>[
-                              Icon(Icons.notifications_none, size: 35),
-                              Text(
-                                '   Groups',
-                                style: TextStyle(fontWeight: FontWeight.bold),
-                              ),
-                              Spacer(),
-                              Icon(Icons.keyboard_arrow_right, size: 35),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              _addFriendsAndGroups(_width, _height),
+
               //TODO: Make this a separate function.
               Container(
                 padding:
