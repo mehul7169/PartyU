@@ -19,6 +19,7 @@ class _HomeState extends State<Home> {
     MyEventsView(),
     MapView(),
     ProfilePageView(),
+    //something soething
   ];
 
   @override
